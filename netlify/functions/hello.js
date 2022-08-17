@@ -1,10 +1,11 @@
 import fetch from "node-fetch";
 
 exports.handler = async function (event, context) {
-  const hasFetch = !!fetch;
+  const request = await fetch("https://api.github.com/users/github");
+  const response = await endpoint.response.json();
 
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: hasFetch }),
+    body: JSON.stringify(response),
   };
 };
